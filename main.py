@@ -1,5 +1,5 @@
 rooms = open(r'Rooms.txt')  
-s=rooms.readlines()  # Readlines from rooms.txt and stores in into a list
+s=rooms.readlines()  # Readlines from rooms.txt and stores it as a list
 # initialized floor, capacity, time1, time2, result as null or empty
 floor=[]            
 capacity=[]
@@ -25,7 +25,7 @@ for s1 in s:
     time1.append(temp)
 print(time1)        # prints the time
 
-# Assigning the capacity, floor, start and end time to input and splitting them
+# Assigning the capacity, floor, start and end time to input and splitting them and converting the time into minutes
 team_capacity,current_floor,start_time,end_time=input().split(',')
 start_time=int(start_time.split(':')[0])*60+int(start_time.split(':')[1])
 end_time=int(end_time.split(':')[0])*60+int(end_time.split(':')[1])
@@ -36,10 +36,10 @@ for i in range(len(floor)):
         z=0
         while z<len(time1[i]):
             if (start_time>=time1[i][z][0] and end_time<=time1[i][z][1]) and i not in result:
-                result.append(i)  # adds the ith floor to result
+                result.append(i)  # appends the ith floor to result
             z=z+1
 
-# Here, it calculates min absolute floor
+# Here, it calculates min absolute floor, checking the differrence between current floor and floor of 1st row in rooms.txt
 min=abs(int(current_floor)-int(floor[0].split('.')[0]))   
 min_index=result[0]
 for i in result:    # hold the floor which is close
