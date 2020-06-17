@@ -1,5 +1,6 @@
 rooms = open(r'Rooms.txt')  
 s=rooms.readlines()  # Readlines from rooms.txt and stores it as a list
+s=[each[:-1] for each in s]
 # initialized floor, capacity, time1, time2, result as null or empty
 floor=[]            
 capacity=[]
@@ -9,7 +10,6 @@ result=[]
 # Takes each row and using split method splits each row using comma
 for s1 in s:         
     s2=s1.split(',') 
-    s2[-1]=s2[-1][0:-1]
     floor.append(s2[0])  # It appends s2[0], i.e floor value
     capacity.append(s2[1]) # adds s2[1], i.e capacity 
     i=2        # Here time starts at index 2
